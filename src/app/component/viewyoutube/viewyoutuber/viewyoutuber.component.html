@@ -1,0 +1,17 @@
+<!-- Card -->
+<div class="card" *ngFor="let data of youtube">
+    <youtube-player [videoId]="id" (ready)="savePlayer($event)" (change)="onStateChange($event)"></youtube-player>
+    <div class="card-body">
+
+        <div>
+            <label>{{data.url}}</label>
+        </div>
+
+        <form (ngSubmit)="onSubmitYoutubeR(form)" #form="ngForm" [formGroup]="formTemplate">
+            <input type="text" class="form-control" placeholder="youtube video url" name="url" formControlName="url">
+            <div class="text-danger" *ngIf="isSubmitted && formControls.url.errors?.required">
+                This field is required.
+            </div><br><br>
+            <button type="submit" class="btn btn-lg btn-outline-primary">save</button>
+        </form>
+    </div>

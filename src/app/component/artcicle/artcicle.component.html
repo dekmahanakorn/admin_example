@@ -1,0 +1,1228 @@
+<div class="row">
+    <div class="col-12">
+        <h4 class="d-inline">Review display **** Please select an image of the same size.</h4>
+        <!-- Row -->
+        <div class="row">
+            <!-- column -->
+            <div class="col-lg-3 col-md-6">
+                <!-- Card 1--------------------------------------------------->
+                <div class="card" *ngFor="let data of review1">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 1</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content1 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review first update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview1(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview1UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title english"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title thai"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open1(content1)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+            <!-- column -->
+            <!-- column -->
+            <div class="col-lg-3 col-md-6">
+                 <!-- Card 2--------------------------------------------------->
+                <div class="card" *ngFor="let data of review2">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 2</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content2 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review second update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview2(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview2UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title english"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title thai"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open2(content2)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+                </div>
+                <!-- Card -->
+            </div>
+            <!-- column -->
+            <!-- column -->
+            <div class="col-lg-3 col-md-6">
+                  <!-- Card 3--------------------------------------------------->
+                <div class="card" *ngFor="let data of review3">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 3</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content3 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review third update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview3(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview3UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open3(content3)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+            <!-- column -->
+            <div class="col-lg-3 col-md-6">
+                 <!-- Card 4--------------------------------------------------->
+                <div class="card" *ngFor="let data of review4">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 4</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content4 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review fourth update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview4(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview4UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open4(content4)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+            <!-- column -->
+            <div class="col-lg-3 col-md-6">
+                  <!-- Card 5--------------------------------------------------->
+                <div class="card" *ngFor="let data of review5">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 5</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content5 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review fifth update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview5(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview5UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open5(content5)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+            <!-- column -->
+            <div class="col-lg-3 col-md-6">
+                 <!-- Card 6--------------------------------------------------->
+                <div class="card" *ngFor="let data of review6">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 6</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content6 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review sixth update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview6(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview6UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open6(content6)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+             <!-- column -->
+             <div class="col-lg-3 col-md-6">
+                  <!-- Card 7--------------------------------------------------->
+                <div class="card" *ngFor="let data of review7">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 7</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content7 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review seventh update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview7(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview7UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open7(content7)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+             <!-- column -->
+             <div class="col-lg-3 col-md-6">
+                 <!-- Card 8--------------------------------------------------->
+                <div class="card" *ngFor="let data of review8">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 8</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content8 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review eighth update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview8(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview8UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open8(content8)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+             <!-- column -->
+             <div class="col-lg-3 col-md-6">
+                 <!-- Card 9--------------------------------------------------->
+                <div class="card" *ngFor="let data of review9">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 9</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content9 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review ninth update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview9(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview9UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open9(content9)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+             <!-- column -->
+             <div class="col-lg-3 col-md-6">
+                <!-- Card 10--------------------------------------------------->
+                <div class="card" *ngFor="let data of review10">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 10</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content10 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review tenth update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview10(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview10UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open10(content10)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+             <!-- column -->
+             <div class="col-lg-3 col-md-6">
+                 <!-- Card 11--------------------------------------------------->
+                <div class="card" *ngFor="let data of review11">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 11</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content11 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review eleventh update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview11(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview11UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open11(content11)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+             <!-- column -->
+             <div class="col-lg-3 col-md-6">
+                  <!-- Card 12--------------------------------------------------->
+                <div class="card" *ngFor="let data of review12">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 12</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content12 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review twelfth update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview12(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview12UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open12(content12)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+             <!-- column -->
+             <div class="col-lg-3 col-md-6">
+               <!-- Card 13--------------------------------------------------->
+                <div class="card" *ngFor="let data of review13">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 13</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content13 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review thirteenth update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview13(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview13UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open13(content13)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+             <!-- column -->
+             <div class="col-lg-3 col-md-6">
+                   <!-- Card 14--------------------------------------------------->
+                <div class="card" *ngFor="let data of review14">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 14</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content14 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review fourteenth update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview14(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview14UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open14(content14)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+             <!-- column -->
+             <div class="col-lg-3 col-md-6">
+                  <!-- Card 15--------------------------------------------------->
+                <div class="card" *ngFor="let data of review15">
+                    <img class="card-img-top img-responsive" [src]="data.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Review display 15</h4>
+
+                        <div>
+                            <label>title en: </label>{{data.title_en}}
+                        </div>
+
+                        <div>
+                            <label>title th: </label>{{data.title_th}}
+                        </div>
+
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                        <ng-template #content15 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Review fifteenth update</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form (ngSubmit)="onSubmitReview15(form)" #form="ngForm">
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Image</td>
+                                                <td>Title</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <form [formGroup]="formTemplate"
+                                                        (submit)="onSubmitReview15UploadImage(formTemplate.value)">
+                                                        <img class="card-img-top img-responsive" style="width: 100%"
+                                                            [src]="imgSrc" (click)="fileUploader.click()"><br><br>
+
+                                                        <input type="file" accept="image/*" class="form-control"
+                                                            #fileUploader formControlName="imageUrl"
+                                                            (change)="showPreview($event)"><br>
+                                                        <div class="text-danger"
+                                                            *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
+                                                            This field is required.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-outline-success">
+                                                                upload
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_en" ngModel>
+                                                    <br><br>
+                                                    <input type="text" class="form-control" placeholder="title"
+                                                        name="title_th" ngModel>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-success"> save </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </ng-template>
+
+                        <button class="btn btn-lg btn-outline-primary" (click)="open15(content15)">update</button>
+                        <!--- ------------------Modal with date picker (NgbdModalBasicComponent)---------------------->
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+        <!-- Row -->
+    </div>
+</div>
+<!-- End Row -->
